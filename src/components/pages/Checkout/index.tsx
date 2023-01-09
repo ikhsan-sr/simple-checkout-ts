@@ -2,6 +2,7 @@ import CartList from '../../organisms/CartList';
 import TotalAmount from '../../organisms/TotalAmount';
 
 import CartProvider from '../../../context/CartContext';
+import Discount from '../../organisms/Discount';
 
 const Checkout = () => {
   return (
@@ -14,6 +15,7 @@ const Checkout = () => {
           </div>
           <div className="col-12 col-md-4 col-sm-12">
             <TotalAmount />
+            <Discount />
           </div>
         </div>
       </div>

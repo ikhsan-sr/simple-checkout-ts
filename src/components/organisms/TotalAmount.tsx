@@ -10,7 +10,7 @@ const TotalAmount = () => {
     <div className="shadow p-3 mb-5 bg-body-tertiary rounded">
       <h6>The total amount of</h6>
 
-      <div className="container">
+      <div className="container text-secondary">
         <div className="row">
           <div className="col-6">Temporary amount</div>
           <div className="col-6">
@@ -24,7 +24,7 @@ const TotalAmount = () => {
 
           <hr className="my-3"/>
 
-          <div className="col-6">The total amount of</div>
+          <div className="col-6 text-dark h6 mt-1">The total amount of</div>
             <div className="col-6">
               <div className="float-end">${cart.total.toFixed(2)}</div>
             </div>

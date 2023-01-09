@@ -31,7 +31,7 @@ const CartItem = ({ data, index } : CartItemType) => {
   return (
     <div className="container border-bottom">
       <div className="row my-4">
-        <div className="col-12 col-md-4 col-sm-12">
+        <div className="col-12 col-md-4 col-sm-12 mb-4">
           <img src={image} alt={name} className="img-thumbnail rounded" />
         </div>
 
@@ -48,12 +48,12 @@ const CartItem = ({ data, index } : CartItemType) => {
                   onChange={handleChange}
                   value={dataCart[index].amount}
                 />
-                {note && `(${note})`}
+                {note && <div className="text-secondary">({note})</div>}
               </div>
             </div>
           </div>
 
-          <div className="mt-3 ms-2">
+          <div className="mt-3 ms-2 text-secondary">
             <p>{type.name} {type.type}</p>
             <p>Color: <span>{type.type}</span></p>
             <p>Size: {size}</p>
