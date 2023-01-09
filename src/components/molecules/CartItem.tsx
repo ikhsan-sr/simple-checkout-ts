@@ -1,8 +1,32 @@
+// @ts-nocheck
+import { useContext } from 'react';
+
 import Counter from '../atoms/Counter';
+import { CartContext } from '../../context/CartContext';
+
 import { CartItemType } from '../../consts/dummy';
 
-const CartItem = ({ data } : CartItemType) => {
+const CartItem = ({ data, index } : CartItemType) => {
+  const { data: dataCart, setData } = useContext(CartContext);
   const { name, image, type, size, note, price } = data;
+
+  const handleIncrease = () => {
+    const newData = dataCart[index];
+    newData.amount = newData.amount + 1;
+
+    setData([...dataCart, newData])
+  }
+
+  const handleDecrease = () => {
+    const newData = dataCart[index];
+    
+    if (newData.amount > 0) {
+      newData.amount = newData.amount - 1;
+      setData([...dataCart, newData])
+    }
+  }
+
+  const handleChange = () => console.log('handleChange');
 
   return (
     <div className="container border-bottom">
@@ -18,7 +42,12 @@ const CartItem = ({ data } : CartItemType) => {
                 <h5>{name}</h5>
               </div>
               <div className="col-4">
-                <Counter />
+                <Counter 
+                  onIncrease={handleIncrease}
+                  onDecrease={handleDecrease}
+                  onChange={handleChange}
+                  value={dataCart[index].amount}
+                />
                 {note && `(${note})`}
               </div>
             </div>

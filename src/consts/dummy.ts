@@ -9,6 +9,7 @@ export const DATA_CART = [
     size: 'M',
     price: 17.99,
     note: 'Note, 1 place',
+    amount: 1,
   },
   {
     name: 'Red Hoodie',
@@ -20,11 +21,13 @@ export const DATA_CART = [
     size: 'M',
     price: 35.99,
     note: null,
+    amount: 1,
   },
 ];
 
 export interface CartItemType {
   data : {
+    amount: number;
     name: string;
     type: {
       name: string;
@@ -34,5 +37,6 @@ export interface CartItemType {
     size: string;
     price: number;
     note: string | null,
-  }
+  };
+  index: number;
 }
